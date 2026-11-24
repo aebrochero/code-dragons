@@ -52,10 +52,6 @@ class SoundEngine {
     }
   }
 
-  public isMuted(): boolean {
-    return this.muted;
-  }
-
   public isMusicPlaying(): boolean {
     return this.musicPlaying;
   }

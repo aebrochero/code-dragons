@@ -342,7 +342,7 @@ export async function executeChallengeCode(params: {
       fetch: typeof mockFetch,
       localStorage: typeof isolatedStorage,
       __tests: typeof testDescriptors
-    ) => Promise<{ __results?: TestRunResult[]; __compileOrRuntimeError?: unknown }>;
+    ) => Promise<{ __results?: TestRunResult[] }>;
 
     const runner = new AsyncFunction(
       'console',
@@ -366,17 +366,6 @@ export async function executeChallengeCode(params: {
     });
 
     const outcome = await Promise.race([execPromise, timeoutPromise]);
-
-    if (outcome.__compileOrRuntimeError) {
-      const diagnosed = diagnoseJsError(outcome.__compileOrRuntimeError);
-      return {
-        success: false,
-        logs,
-        results: [],
-        error: diagnosed,
-        finalDomHtml: sandboxRoot?.innerHTML,
-      };
-    }
 
     const results = outcome.__results ?? [];
     const allPassed = results.length > 0 && results.every((r) => r.passed);

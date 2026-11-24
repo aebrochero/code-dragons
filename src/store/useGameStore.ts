@@ -106,7 +106,6 @@ interface GameContextValue {
     castleConquered: boolean;
   };
   openChest: (chestId: string, gold: number, xp: number) => void;
-  unlockGrimoirePage: (pageId: string) => void;
   victoryCastleId: number | null;
   clearVictoryModal: () => void;
 }
@@ -178,16 +177,6 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setScreen('world_map');
     notify('Modo Exploración Libre activado: todos los castillos están accesibles.', 'arcane');
   }, [notify]);
-
-  const unlockGrimoirePage = useCallback((pageId: string) => {
-    setSave((prev) => {
-      if (prev.unlockedGrimoire.includes(pageId)) return prev;
-      return {
-        ...prev,
-        unlockedGrimoire: [...prev.unlockedGrimoire, pageId],
-      };
-    });
-  }, []);
 
   const enterRoom = useCallback(
     (castleId: number, roomIndex: number) => {
@@ -546,7 +535,6 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     unlockHintTier,
     markAltarSolved,
     openChest,
-    unlockGrimoirePage,
     victoryCastleId,
     clearVictoryModal,
   };
