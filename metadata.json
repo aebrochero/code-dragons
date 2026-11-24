@@ -1,0 +1,6 @@
+{
+  "name": "Code & Dragons: Crónicas del Frontend",
+  "description": "Videojuego RPG y plataformas 2D en Pixel Art estilo Calabozos y Dragones para aprender lógica de programación y desarrollo Frontend moderno con JavaScript, DOM, Asincronía y Arquitectura.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

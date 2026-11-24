@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-pixel: 'Press Start 2P', monospace;
+    --font-retro: 'VT323', monospace;
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-code: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0b14;
+    color: #ede7d9;
+    font-family: var(--font-retro);
+  }
+}
+
+.font-pixel {
+  font-family: var(--font-pixel);
+}
+
+.font-retro {
+  font-family: var(--font-retro);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-code {
+  font-family: var(--font-code);
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Crisp medieval pixel-bevel borders */
+.pixel-panel {
+  background-color: #161321;
+  border: 2px solid #483d5e;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 240, 200, 0.08),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.55),
+    0 6px 0 rgba(7, 5, 12, 0.78);
+}
+
+.pixel-panel-warm {
+  background-color: #1b1623;
+  border: 2px solid #8a6b3e;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 226, 150, 0.14),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.6),
+    0 6px 0 rgba(7, 5, 12, 0.85);
+}
+
+.pixel-btn {
+  border: 2px solid #6b5882;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.45),
+    0 3px 0 #09070f;
+  transition: transform 90ms ease, filter 120ms ease, background-color 120ms ease;
+}
+
+.pixel-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 2px 0 rgba(0, 0, 0, 0.25),
+    0 1px 0 #09070f;
+}
+
+.pixel-btn:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #f5b942;
+  outline-offset: 2px;
+}
+
+.hud-text-shadow {
+  text-shadow: 0 2px 0 #09070f, 1px 1px 0 #09070f;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom dark medieval scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #100d18;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d3352;
+  border: 1px solid #100d18;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5c4d7a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
